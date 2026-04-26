@@ -1,0 +1,16 @@
+# IDE files.
+/**/.idea/
+/**/.vscode/
+/**/.cursor/
+/**/.vs/
+
+# Libraries.
+/node_modules/
+
+# Distribution & Next.js files.
+/dist/
+/build/
+/.next/
+/out/
+/**/*.tsbuildinfo
+/next-env.d.ts
