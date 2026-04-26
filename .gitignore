@@ -15,5 +15,9 @@
 /**/*.tsbuildinfo
 /next-env.d.ts
 
+# Environment variables.
+/**/*.env*
+!/.env.example
+
 # Operating system files.
 /**/.DS_Store
