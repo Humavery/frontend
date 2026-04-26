@@ -29,9 +29,7 @@ const metadata: Metadata = {
 function RootLayout({ children }: IChildren): JSX.Element {
     return (
         <html lang="en" className={`${geistSans.variable} h-full antialiased`} suppressHydrationWarning>
-            <body>
-                {children}
-            </body>
+            <body>{children}</body>
         </html>
     )
 }

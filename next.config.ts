@@ -19,8 +19,8 @@ export default {
             {
                 source: "/favicon.ico",
                 destination: "/favicon.png",
-                permanent: true
-            }
+                permanent: true,
+            },
         ]
-    }
+    },
 } satisfies NextConfig

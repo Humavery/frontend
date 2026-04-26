@@ -25,7 +25,17 @@
         "lint:fix": "bunx eslint --fix .",
         "dev": "bunx next dev",
         "build": "bunx next build",
-        "start": "bunx next start"
+        "start": "bunx next start",
+        "prepare": "husky"
+    },
+    "lint-staged": {
+        "*.{ts,tsx,json,json5,jsonc,css,md,mdx}": [
+            "bunx eslint --fix",
+            "bunx prettier --write"
+        ],
+        "*.{yml,yaml}": [
+            "bunx prettier --write"
+        ]
     },
     "dependencies": {
         "next": "16.2.4",
@@ -46,6 +56,8 @@
         "eslint-config-next": "^16.2.4",
         "eslint-plugin-react": "^7.37.5",
         "globals": "^17.5.0",
+        "husky": "^9.1.7",
+        "lint-staged": "^16.4.0",
         "tailwindcss": "^4",
         "typescript": "^5",
         "typescript-eslint": "^8.59.0"
