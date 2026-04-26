@@ -1,6 +1,6 @@
 {
     "name": "@humavery/frontend",
-    "description": "A website for TrueWeb project. Includes landing page & dashboard for both B2C and B2B clients.",
+    "description": "A website for Humavery project. Includes landing page & dashboard for both B2C and B2B clients.",
     "private": true,
     "version": "0.0.1",
     "homepage": "https://github.com/Humavery/frontend",
