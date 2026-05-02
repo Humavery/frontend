@@ -16,6 +16,10 @@ jobs:
         env:
             NODE_ENV: CI
 
+            NEXT_PUBLIC_API_ENDPOINT_URL: https://api.humavery.com
+            NEXT_PUBLIC_CDN_ENDPOINT_URL: https://cdn.humavery.com
+            NEXT_PUBLIC_WEBSITE_ENDPOINT_URL: https://humavery.com
+
             # Every single environment variable needs to be set in order to make the application work correctly.
             # CI also should follow this standard, even though it's not required for CI (NODE_ENV == "CI").
 
