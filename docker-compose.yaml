@@ -1,3 +1,4 @@
+---
 services:
     frontend-app:
         container_name: humavery-frontend
