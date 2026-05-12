@@ -1,0 +1,57 @@
+# Template of a bug report issue.
+---
+name: Report a bug
+description: Report a bug in the project or repository.
+title: "bug: "
+labels: ["🐞 bug"]
+
+body:
+    - type: dropdown
+      id: sector
+      attributes:
+          label: Sector of the project.
+          description: Select the sector of the project that the bug is related to.
+          options:
+              - DX (Development Experience)
+              - Core Functionality
+              - Documentation
+              - Other
+      validations:
+          required: true
+
+    - type: input
+      id: description
+      attributes:
+          label: Description of the bug.
+          description: Describe the bug in more detail.
+          placeholder: "I can't log in to the application, after clicking the button nothing happens!"
+      validations:
+          required: true
+
+    - type: textarea
+      id: steps
+      attributes:
+          label: Steps to reproduce.
+          description: Steps to reproduce the bug.
+          placeholder: |
+              1. Enter the data.
+              2. Click the "Submit" button.
+              3. Observe the lack of result.
+      validations:
+          required: true
+
+    - type: textarea
+      id: expected
+      attributes:
+          label: Expected result.
+          description: What should happen, if the bug didn't happen?
+          placeholder: "The form should be submitted successfully and the user should be redirected to the home page."
+      validations:
+          required: true
+
+    - type: textarea
+      id: logs
+      attributes:
+          label: Console content.
+          description: Optional content of the browser console or terminal.
+          render: shell

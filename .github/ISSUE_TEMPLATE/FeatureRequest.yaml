@@ -1,0 +1,29 @@
+# Template of a feature request issue.
+---
+name: New feature
+description: Propose a new feature in the repository or project.
+title: "feat: "
+labels: ["🌟 feature"]
+
+body:
+    - type: dropdown
+      id: sector
+      attributes:
+          label: Sector of the project.
+          description: Select the sector of the project that the feature is related to.
+          options:
+              - DX (Development Experience)
+              - Core Functionality
+              - Documentation
+              - Other
+      validations:
+          required: true
+
+    - type: textarea
+      id: description
+      attributes:
+          label: Description of the feature.
+          description: Describe your idea in more detail.
+          placeholder: "Change the color of the button to gray."
+      validations:
+          required: true

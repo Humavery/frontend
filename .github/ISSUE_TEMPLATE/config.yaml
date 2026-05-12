@@ -1,0 +1,7 @@
+# Configuration of the issue templates.
+---
+blank_issues_enabled: false
+contact_links:
+    - name: Contact us via email.
+      about: We are always happy to help you with your questions and feedback.
+      url: https://humavery.com/contact
