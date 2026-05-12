@@ -1,5 +1,4 @@
-import type { IRequestResponse } from "@/humavery/libs/models/libs/globals/clients/requests/general/interfaces/IRequestResponse"
-import { RequestCachingClientService } from "@/humavery/libs/services/client/RequestCachingClientService"
+import type { IRequestCachingClientServiceOptions } from "@/humavery/libs/models/libs/services/client/request-caching/interfaces/IRequestCachingClientServiceOptions"
 
 /**
  * @summary A base class for all request clients.
@@ -10,17 +9,16 @@ class BaseRequestClient {
      * @summary The constructor for the BaseRequestClient.
      * @description Constructs a class that is used as a base class for all request clients.
      */
-    private constructor() {}
+    protected constructor() {}
 
     /**
-     * @summary The request caching service.
-     * @description The request caching service, it is used to cache the responses of the requests.
+     * @summary Default request cache tuning shared by subclasses.
+     * @description Each subclass must instantiate its own `RequestCachingClientService` with these or custom options so caches stay isolated per client type.
      */
-    protected static readonly requestCachingService: RequestCachingClientService<IRequestResponse<unknown, unknown>> =
-        new RequestCachingClientService({
-            timeToLive: 1000 * 60,
-            maxSize: 100,
-        })
+    protected static readonly DEFAULT_REQUEST_CACHE_OPTIONS: Readonly<IRequestCachingClientServiceOptions> = {
+        timeToLive: 1000 * 60,
+        maxSize: 100,
+    }
 
     /**
      * @summary The base headers for all requests.
