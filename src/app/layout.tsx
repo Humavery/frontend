@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next"
 import type { IChildren } from "../libs/models/components/general/interfaces/IChildren"
 import type { JSX } from "react"
 import { Geist } from "next/font/google"
+import { headers } from "next/headers"
+import { routing } from "@/humavery/libs/translations/Routing"
 import "@/humavery/styles/GlobalStyles.css"
 
 /**
@@ -37,11 +39,14 @@ const viewport: Viewport = {
 
 /**
  * @summary The root layout for the website.
- * @description This is the root layout for the website. It is the parent component for all pages.
+ * @description Wraps all routes. `lang` comes from the next-intl proxy (`X-NEXT-INTL-LOCALE`).
  */
-function RootLayout({ children }: IChildren): JSX.Element {
+async function RootLayout({ children }: IChildren): Promise<JSX.Element> {
+    const headerLocale: string | null = (await headers()).get("X-NEXT-INTL-LOCALE")
+    const lang: string = headerLocale ?? routing.defaultLocale
+
     return (
-        <html lang="en" className={`${geistSans.variable} h-full antialiased`} suppressHydrationWarning>
+        <html lang={lang} className={`${geistSans.variable} h-full antialiased`} suppressHydrationWarning>
             <body>{children}</body>
         </html>
     )

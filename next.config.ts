@@ -1,4 +1,5 @@
 import type { NextConfig } from "next"
+import createNextIntlPlugin from "next-intl/plugin"
 
 /**
  * @summary The CDN endpoint URL.
@@ -21,7 +22,7 @@ const CDN_ENDPOINT_URL: URL = ((): URL => {
  * @description Configuration of the frontend application.
  * @see {@link https://nextjs.org/docs/app/api-reference/config/next-config-js}
  */
-export default {
+const nextConfig: NextConfig = {
     typedRoutes: true,
     reactCompiler: true,
     reactStrictMode: true,
@@ -47,4 +48,12 @@ export default {
             },
         ]
     },
-} satisfies NextConfig
+}
+
+/**
+ * @summary Next.js configuration with pinned next-intl version.
+ * @description Configuration of the Next.js 16 application with pinned next-intl version.
+ * @see {@link https://next-intl.dev/docs/getting-started/setup/next-js}
+ */
+const withNextIntl = createNextIntlPlugin("./src/libs/translations/RequestConfig.ts")
+export default withNextIntl(nextConfig)

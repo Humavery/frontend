@@ -27,5 +27,8 @@
 /**/*.env*
 !/.env.example
 
+# Translations.
+/src/libs/translations/messages/
+
 # Operating system files.
 /**/.DS_Store
