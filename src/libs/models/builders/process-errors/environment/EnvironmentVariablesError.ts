@@ -42,6 +42,20 @@ class EnvironmentVariablesError extends Error {
     }
 
     /**
+     * @summary The method to create an error from an invalid node environment.
+     * @description This method creates an error from an invalid node environment.
+     * @param variableValue - The value of the environment variable that is invalid.
+     * @returns The error from the invalid node environment.
+     */
+    public static fromInvalidNodeEnvironment(variableValue: string): EnvironmentVariablesError {
+        return new this(
+            `The environment variable "NODE_ENV" is not a valid node environment.`,
+            "NODE_ENV",
+            variableValue,
+        )
+    }
+
+    /**
      * @summary The method to create an error from an invalid URL value.
      * @description This method creates an error from an invalid URL value.
      * @param variableName - The name of the environment variable that is invalid.

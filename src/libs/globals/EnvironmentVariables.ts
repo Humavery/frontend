@@ -1,3 +1,4 @@
+import { NodeEnvironment } from "../models/libs/globals/environment/enums/NodeEnvironment"
 import { EnvironmentVariablesDataManager } from "./managers/security/EnvironmentVariablesDataManager"
 
 /**
@@ -10,6 +11,12 @@ class EnvironmentVariables {
      * @description Private constructor to prevent instantiation of the class.
      */
     private constructor() {}
+
+    /**
+     * @summary The node environment.
+     * @description The node environment, used to determine the environment of the application.
+     */
+    public static readonly NODE_ENV: NodeEnvironment = EnvironmentVariablesDataManager.getNodeEnvironment()
 
     /**
      * @summary The URL to the API endpoint.

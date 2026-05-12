@@ -1,4 +1,5 @@
 import { EnvironmentVariablesError } from "@/humavery/libs/models/builders/process-errors/environment/EnvironmentVariablesError"
+import { NodeEnvironment } from "@/humavery/libs/models/libs/globals/environment/enums/NodeEnvironment"
 
 /**
  * @summary The manager for the environment variables.
@@ -10,6 +11,24 @@ class EnvironmentVariablesDataManager {
      * @description Constructs a class that contains information about the environment variables.
      */
     private constructor() {}
+
+    public static getNodeEnvironment(): NodeEnvironment {
+        const value: string | undefined = process.env.NODE_ENV
+        if (value === undefined) {
+            throw EnvironmentVariablesError.fromMissingVariable("NODE_ENV")
+        }
+
+        switch (value.toUpperCase().trim()) {
+            case NodeEnvironment.DEVELOPMENT:
+                return NodeEnvironment.DEVELOPMENT
+            case NodeEnvironment.PRODUCTION:
+                return NodeEnvironment.PRODUCTION
+            case NodeEnvironment.CI:
+                return NodeEnvironment.CI
+            default:
+                throw EnvironmentVariablesError.fromInvalidNodeEnvironment(value)
+        }
+    }
 
     /**
      * @summary Gets the URL from the environment variables.
