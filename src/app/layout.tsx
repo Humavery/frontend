@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next"
 import type { IChildren } from "../libs/models/components/general/interfaces/IChildren"
 import type { JSX } from "react"
+import { ThemeProvider } from "@wrksz/themes/next"
 import { Geist } from "next/font/google"
 import { headers } from "next/headers"
 import { routing } from "@/humavery/libs/translations/Routing"
@@ -47,7 +48,11 @@ async function RootLayout({ children }: IChildren): Promise<JSX.Element> {
 
     return (
         <html lang={lang} className={`${geistSans.variable} h-full antialiased`} suppressHydrationWarning>
-            <body>{children}</body>
+            <body>
+                <ThemeProvider attribute="class" defaultTheme="system" disableTransitionOnChange storage="hybrid">
+                    {children}
+                </ThemeProvider>
+            </body>
         </html>
     )
 }
