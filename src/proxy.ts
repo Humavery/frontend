@@ -9,7 +9,7 @@ const handleI18nRouting = createMiddleware(routing)
  * @description Delegates locale detection and prefix routing to next-intl.
  * @see {@link https://next-intl.dev/docs/routing/setup}
  */
-function proxy(request: NextRequest) {
+export function proxy(request: NextRequest) {
     return handleI18nRouting(request)
 }
 
@@ -18,8 +18,6 @@ function proxy(request: NextRequest) {
  * @description Configuration for the Next.js 16 proxy.
  * @see {@link https://next-intl.dev/docs/routing/setup}
  */
-const config = {
+export const config = {
     matcher: ["/((?!api|trpc|_next|_vercel|.*\\..*).*)"],
 }
-
-export { proxy, config }

@@ -12,7 +12,7 @@ import { routing } from "@/humavery/libs/translations/Routing"
  * @description This function is used to generate the static params for every configured locale.
  * @returns The static params for every configured locale.
  */
-const generateStaticParams = (): readonly ILocaleStaticParams[] => {
+const generateStaticParams = (): ILocaleStaticParams[] => {
     return routing.locales.map((locale: string): ILocaleStaticParams => ({ locale }))
 }
 
