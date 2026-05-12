@@ -1,5 +1,7 @@
 import { hasLocale } from "next-intl"
 import { getRequestConfig } from "next-intl/server"
+import { IntlRequestErrorHandlers } from "@/humavery/libs/globals/managers/translations/IntlRequestErrorHandlers"
+import { LoadTranslationMessagesDataManager } from "@/humavery/libs/globals/managers/translations/LoadTranslationMessagesDataManager"
 import { routing } from "@/humavery/libs/translations/Routing"
 
 /**
@@ -12,7 +14,9 @@ const requestConfig = getRequestConfig(async ({ requestLocale }) => {
 
     return {
         locale,
-        messages: (await import(`@/humavery/libs/translations/messages/${locale}.json`)).default,
+        messages: await LoadTranslationMessagesDataManager.loadMessages(locale),
+        onError: IntlRequestErrorHandlers.onError,
+        getMessageFallback: IntlRequestErrorHandlers.getMessageFallback,
     }
 })
 

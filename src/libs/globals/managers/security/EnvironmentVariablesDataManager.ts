@@ -18,7 +18,7 @@ class EnvironmentVariablesDataManager {
             throw EnvironmentVariablesError.fromMissingVariable("NODE_ENV")
         }
 
-        switch (value.toUpperCase().trim()) {
+        switch (value.toLowerCase().trim()) {
             case NodeEnvironment.DEVELOPMENT:
                 return NodeEnvironment.DEVELOPMENT
             case NodeEnvironment.PRODUCTION:

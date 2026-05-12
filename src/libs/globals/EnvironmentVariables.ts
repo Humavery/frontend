@@ -19,6 +19,12 @@ class EnvironmentVariables {
     public static readonly NODE_ENV: NodeEnvironment = EnvironmentVariablesDataManager.getNodeEnvironment()
 
     /**
+     * @summary Whether the application is running in the CI environment.
+     * @description Whether the application is running in the CI environment, used to suppress missing-message noise in CI.
+     */
+    public static readonly IS_CI: boolean = EnvironmentVariables.NODE_ENV === NodeEnvironment.CI
+
+    /**
      * @summary The URL to the API endpoint.
      * @description Endpooint URL to the API.
      */
