@@ -20,7 +20,8 @@ LABEL org.opencontainers.image.title="@humavery/frontend" \
       org.opencontainers.image.source="https://github.com/Humavery/frontend.git"
 
 WORKDIR /app
-ENV NODE_ENV=production
+ENV NODE_ENV=production \
+    HOME=/app
 
 COPY --from=builder /app/.next ./
 COPY --from=builder /app/public ./public
@@ -28,5 +29,11 @@ COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package.json ./package.json
 COPY --from=builder /app/bun.lock ./bun.lock
 
-EXPOSE 3000
+RUN groupadd --gid 1001 app \
+    && useradd --uid 1001 --gid app --no-create-home --shell /usr/sbin/nologin app \
+    && chown -R app:app /app
+
+USER app
+
+EXPOSE ${APP_PORT}
 CMD ["bun", "run", "start"]
