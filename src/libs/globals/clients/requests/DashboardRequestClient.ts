@@ -4,10 +4,10 @@ import { BaseRequestClient } from "./base/BaseRequestClient"
 import { HttpRequestMethod } from "@/humavery/libs/models/libs/globals/clients/requests/general/enums/HttpRequestMethod"
 
 /**
- * @summary A client that is used to make requests to the server.
- * @description This class is used to make requests to the server.
+ * @summary A client that is used to make requests to the dashboard API.
+ * @description This class is used to make requests to the server as an authorized user.
  */
-class GeneralRequestClient extends BaseRequestClient {
+class DashboardRequestClient extends BaseRequestClient {
     /**
      * @summary Private constructor.
      * @description Private constructor to prevent instantiation of the class.
@@ -189,4 +189,4 @@ class GeneralRequestClient extends BaseRequestClient {
     }
 }
 
-export { GeneralRequestClient }
+export { DashboardRequestClient }

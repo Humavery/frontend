@@ -26,7 +26,7 @@ class EnvironmentVariables {
 
     /**
      * @summary The URL to the API endpoint.
-     * @description Endpooint URL to the API.
+     * @description Endpoint URL to the API.
      */
     public static readonly API_ENDPOINT_URL: URL = EnvironmentVariablesDataManager.getURL(
         "NEXT_PUBLIC_API_ENDPOINT_URL",
