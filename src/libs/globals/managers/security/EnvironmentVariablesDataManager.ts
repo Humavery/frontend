@@ -48,7 +48,7 @@ class EnvironmentVariablesDataManager {
         }
 
         try {
-            return new URL(value) as T extends true ? URL : URL | undefined
+            return new URL(value.replace(/\/$/, "")) as T extends true ? URL : URL | undefined
         } catch {
             throw EnvironmentVariablesError.fromInvalidURLValue(variableName, value)
         }
