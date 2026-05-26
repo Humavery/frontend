@@ -22,6 +22,21 @@ const geistSans = Geist({
  */
 const metadata: Metadata = {
     title: "Humavery",
+    icons: {
+        icon: [
+            {
+                url: "/assets/icons/icon-192x192.png",
+                sizes: "192x192",
+                type: "image/png",
+            },
+            {
+                url: "/assets/icons/icon-512x512.png",
+                sizes: "512x512",
+                type: "image/png",
+            },
+        ],
+        apple: [{ url: "/assets/icons/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+    },
 }
 
 /**
