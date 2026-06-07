@@ -27,6 +27,9 @@
 /**/*.env*
 !/.env.example
 
+# Vercel.
+/.vercel/
+
 # Translations.
 /src/libs/translations/messages/
 

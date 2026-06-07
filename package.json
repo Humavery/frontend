@@ -23,10 +23,10 @@
         "format:check": "bunx prettier --check .",
         "lint": "bunx eslint .",
         "lint:fix": "bunx eslint --fix .",
-        "healthcheck": "bun run scripts/docker/HealthCheckDockerScript.ts",
-        "dev": "bunx next dev",
-        "build": "bunx next build",
-        "start": "bunx next start",
+        "healthcheck": "bun ./scripts/docker/HealthCheckDockerScript.ts",
+        "dev": "bun --bun next dev",
+        "build": "bun --bun next build",
+        "start": "bun --bun next start",
         "prepare": "husky"
     },
     "lint-staged": {
