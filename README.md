@@ -1,3 +1,7 @@
-# frontend - Part of TrueWeb Project for STEM Academy
+# ⭐️ `@humavery/frontend`
 
-TrueWeb landing page and user dashboard. Web interface for B2C and B2B clients.
+This repository contains view of the frontend page.
+
+<!--
+    to-do: document more features of the website
+-->
