@@ -1,4 +1,5 @@
 # Configuration of the CD workflow for the frontend application.
+# Workflow is responsible for deploying the production build of the application to Vercel.
 ---
 name: Deploy frontend application to Vercel.
 on:

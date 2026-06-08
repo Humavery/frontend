@@ -17,7 +17,7 @@ class SitemapManager {
      * @summary The paths for the sitemap.
      * @description The that will be included in the sitemap.
      */
-    private static readonly PATHS: readonly string[] = ["/"]
+    private static readonly PATHS: readonly string[] = ["/", "/contact"]
 
     /**
      * @summary Resolves the localized path.
