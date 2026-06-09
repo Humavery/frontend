@@ -1,8 +1,7 @@
 "use client"
 import { useState, type JSX } from "react"
-import { Link } from "@/humavery/libs/translations/Navigation"
+import { Link, usePathname } from "@/humavery/libs/translations/Navigation"
 import CommonNavigationBarDesktopLinkComponent from "./CommonNavigationBarDesktopLinkComponent"
-import { usePathname } from "next/navigation"
 import { MenuIcon, X } from "lucide-react"
 import { cn } from "@/humavery/libs/utilities/cn"
 
@@ -15,9 +14,7 @@ const CommonNavigationBarComponent = (): JSX.Element => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
     const toggleMobileMenu = (): void => setIsMobileMenuOpen((current: boolean): boolean => !current)
 
-    const rawPathName: string = usePathname()
-    const pathname: string = rawPathName.split("/").slice(2).join("/") || "/"
-    const path: string = pathname.startsWith("/") ? pathname : `/${pathname}`
+    const path: string = usePathname()
 
     return (
         <>
