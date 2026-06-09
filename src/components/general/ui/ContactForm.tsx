@@ -247,14 +247,7 @@ const ContactForm = (): JSX.Element => {
             <button
                 onClick={handleSubmit}
                 disabled={status === "loading"}
-                className="w-full rounded-xl text-white text-sm font-medium py-3 transition-colors duration-150 disabled:opacity-60 disabled:cursor-not-allowed"
-                style={{ background: "#6b72d8" }}
-                onMouseEnter={(e) => {
-                    if (status !== "loading") e.currentTarget.style.background = "#5a62cc"
-                }}
-                onMouseLeave={(e) => {
-                    e.currentTarget.style.background = "#6b72d8"
-                }}>
+                className="w-full rounded-xl text-white text-sm font-medium py-3 transition-colors duration-150 disabled:opacity-60 disabled:cursor-not-allowed bg-blue-500">
                 {status === "loading" ? "Wysyłanie…" : "Wyślij wiadomość"}
             </button>
         </div>

@@ -6,6 +6,7 @@ import { NextIntlClientProvider } from "next-intl"
 import { getMessages, setRequestLocale } from "next-intl/server"
 import { notFound } from "next/navigation"
 import { routing } from "@/humavery/libs/translations/Routing"
+import Navbar from "@/humavery/components/general/ui/Navbar"
 
 /**
  * @summary Static params for every configured locale.
@@ -31,6 +32,7 @@ async function LocaleLayout({ children, params }: ILocaleLayoutProperties): Prom
 
     return (
         <NextIntlClientProvider locale={locale} messages={messages}>
+            <Navbar />
             {children}
         </NextIntlClientProvider>
     )

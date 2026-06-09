@@ -1,9 +1,11 @@
 import type { JSX } from "react"
-import CommonNavigationBarComponent from "@/humavery/components/general/layout/common/navigation/CommonNavigationBarComponent"
+
 import Heading from "@/humavery/components/general/ui/Heading"
 import Subtext from "@/humavery/components/general/ui/Subtext"
 import Badge from "@/humavery/components/general/ui/Badge"
 import ContactForm from "@/humavery/components/general/ui/ContactForm"
+import FAQ from "@/humavery/components/general/ui/FAQ"
+import Footer from "@/humavery/components/general/ui/Footer"
 
 /**
  * @summary The contact page.
@@ -13,9 +15,8 @@ import ContactForm from "@/humavery/components/general/ui/ContactForm"
 function ContactPage(): JSX.Element {
     return (
         <>
-            <CommonNavigationBarComponent />
             <section className="w-full min-h-dvh bg-[url(/assets/images/background.png)] bg-cover bg-center">
-                <div className="flex flex-col items-center justify-center m-auto w-full max-w-3xl px-4 pt-18 gap-6">
+                <div className="flex flex-col items-center justify-center m-auto w-full max-w-3xl px-4 pt-28 gap-6">
                     <Badge>Jesteśmy dostępni</Badge>
                     <Heading>Skontaktuj się z nami</Heading>
                     <Subtext className="max-w-xl">
@@ -29,6 +30,8 @@ function ContactPage(): JSX.Element {
                     <ContactForm />
                 </div>
             </section>
+            <FAQ />
+            <Footer />
         </>
     )
 }

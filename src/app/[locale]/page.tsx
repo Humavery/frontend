@@ -1,6 +1,5 @@
 import type { JSX } from "react"
 import type { Metadata } from "next"
-import CommonNavigationBarComponent from "@/humavery/components/general/layout/common/navigation/CommonNavigationBarComponent"
 
 /**
  * @summary The metadata for the home page.
@@ -30,11 +29,7 @@ const metadata: Metadata = {
  * @returns The home page.
  */
 function HomePage(): JSX.Element {
-    return (
-        <>
-            <CommonNavigationBarComponent />
-        </>
-    )
+    return <></>
 }
 
 export { metadata }
