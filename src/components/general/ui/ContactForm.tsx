@@ -1,6 +1,7 @@
 "use client"
-
-import { useState } from "react"
+import { JSX, useState } from "react"
+import { cn } from "@/humavery/libs/utilities/cn"
+import "@/humavery/styles/components/general/ui/ContactFormStyles.css"
 
 type FormData = {
     imie: string
@@ -10,18 +11,6 @@ type FormData = {
 }
 
 type FormErrors = Partial<Record<keyof FormData, string>>
-
-const FIELD_STYLE = {
-    background: "#eef0f9",
-    border: "1.5px solid #D7DDFF",
-    color: "#1a1a2e",
-}
-
-const FIELD_ERROR_STYLE = {
-    background: "#fef2f2",
-    border: "1.5px solid #ADB7F0",
-    color: "#1a1a2e",
-}
 
 function validate(data: FormData): FormErrors {
     const errors: FormErrors = {}
@@ -42,16 +31,28 @@ function validate(data: FormData): FormErrors {
     return errors
 }
 
-function FieldError({ msg }: { msg?: string }) {
+/**
+ * @summary The field error component.
+ * @description This component is used to display an error message for a field.
+ * @param props - The properties of the field error component.
+ * @param props.msg - The error message to display.
+ * @returns The JSX element of the field error component.
+ */
+const FieldError = ({ msg }: Readonly<{ msg?: string }>): JSX.Element | null => {
     if (!msg) return null
-    return (
+    return msg ? (
         <p className="text-xs mt-1" style={{ color: "#ef4444" }}>
             {msg}
         </p>
-    )
+    ) : null
 }
 
-export default function ContactForm() {
+/**
+ * @summary The contact form component.
+ * @description This component is used to display a contact form.
+ * @returns The JSX element of the contact form component.
+ */
+const ContactForm = (): JSX.Element => {
     const [formData, setFormData] = useState<FormData>({
         imie: "",
         nazwisko: "",
@@ -165,8 +166,10 @@ export default function ContactForm() {
                         placeholder="Twoje imię"
                         value={formData.imie}
                         onChange={handleChange}
-                        className="w-full rounded-xl px-4 py-2.5 text-sm outline-none transition"
-                        style={errors.imie ? FIELD_ERROR_STYLE : FIELD_STYLE}
+                        className={cn(
+                            "w-full rounded-xl px-4 py-2.5 text-sm outline-none transition",
+                            errors.imie ? "field-error-style" : "field-style",
+                        )}
                     />
                     <FieldError msg={errors.imie} />
                 </div>
@@ -180,8 +183,10 @@ export default function ContactForm() {
                         placeholder="Twoje nazwisko"
                         value={formData.nazwisko}
                         onChange={handleChange}
-                        className="w-full rounded-xl px-4 py-2.5 text-sm outline-none transition"
-                        style={errors.nazwisko ? FIELD_ERROR_STYLE : FIELD_STYLE}
+                        className={cn(
+                            "w-full rounded-xl px-4 py-2.5 text-sm outline-none transition",
+                            errors.nazwisko ? "field-error-style" : "field-style",
+                        )}
                     />
                     <FieldError msg={errors.nazwisko} />
                 </div>
@@ -198,8 +203,10 @@ export default function ContactForm() {
                     placeholder="Twój email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full rounded-xl px-4 py-2.5 text-sm outline-none transition"
-                    style={errors.email ? FIELD_ERROR_STYLE : FIELD_STYLE}
+                    className={cn(
+                        "w-full rounded-xl px-4 py-2.5 text-sm outline-none transition",
+                        errors.email ? "field-error-style" : "field-style",
+                    )}
                 />
                 <FieldError msg={errors.email} />
             </div>
@@ -215,8 +222,10 @@ export default function ContactForm() {
                     value={formData.wiadomosc}
                     onChange={handleChange}
                     rows={7}
-                    className="w-full rounded-xl px-4 py-3 text-sm outline-none transition resize-none"
-                    style={errors.wiadomosc ? FIELD_ERROR_STYLE : FIELD_STYLE}
+                    className={cn(
+                        "w-full rounded-xl px-4 py-3 text-sm outline-none transition resize-none",
+                        errors.wiadomosc ? "field-error-style" : "field-style",
+                    )}
                 />
                 <FieldError msg={errors.wiadomosc} />
             </div>
@@ -251,3 +260,5 @@ export default function ContactForm() {
         </div>
     )
 }
+
+export default ContactForm
