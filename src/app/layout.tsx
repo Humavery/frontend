@@ -62,7 +62,7 @@ async function RootLayout({ children }: IChildren): Promise<JSX.Element> {
     const lang: string = headerLocale ?? routing.defaultLocale
 
     return (
-        <html lang={lang} className={`${geistSans.variable} h-full antialiased`} suppressHydrationWarning>
+        <html lang={lang} className={`${geistSans.className} h-full antialiased`} suppressHydrationWarning>
             <body>
                 <ThemeProvider attribute="class" defaultTheme="system" disableTransitionOnChange storage="hybrid">
                     {children}
