@@ -11,10 +11,8 @@ type NavLink = {
 
 const NAV_LINKS: NavLink[] = [
     { label: "Strona główna", href: "/" },
-    { label: "O nas", href: "/o-nas" },
-    { label: "Usługi", href: "/uslugi" },
-    { label: "FAQ", href: "/faq" },
-    { label: "Kontakt", href: "/kontakt" },
+    { label: "FAQ", href: "/contact#faq" },
+    { label: "Kontakt", href: "/contact#contact" },
 ]
 
 const HOVER_STYLE = {
@@ -94,9 +92,8 @@ export default function Navbar() {
                 ].map((transform, i) => (
                     <span
                         key={i}
-                        className="block h-0.5 w-5 rounded transition-all duration-200"
+                        className="block h-0.5 w-5 rounded transition-all duration-200 bg-blue-500"
                         style={{
-                            background: "#6b72d8",
                             transform,
                             opacity: i === 1 && open ? 0 : 1,
                         }}
