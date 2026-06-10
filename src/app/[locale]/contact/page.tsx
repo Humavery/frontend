@@ -1,5 +1,4 @@
 import type { JSX } from "react"
-
 import Heading from "@/humavery/components/general/ui/Heading"
 import Subtext from "@/humavery/components/general/ui/Subtext"
 import Badge from "@/humavery/components/general/ui/Badge"

@@ -68,7 +68,7 @@ export default function Footer() {
                         <div className="flex items-center gap-3 mt-1">
                             {SOCIAL_LINKS.map((s) => (
                                 <a
-                                    key={s.href}
+                                    key={s.label}
                                     href={s.href}
                                     target="_blank"
                                     rel="noopener noreferrer"
@@ -110,7 +110,7 @@ export default function Footer() {
                             </p>
                             <ul className="flex flex-col gap-2">
                                 {col.links.map((link) => (
-                                    <li key={link.href}>
+                                    <li key={link.label}>
                                         <Link
                                             href={link.href}
                                             className="text-sm transition-colors duration-150"

@@ -1,7 +1,7 @@
 "use client"
 import { JSX, useState } from "react"
 import { cn } from "@/humavery/libs/utilities/cn"
-import "@/humavery/styles/components/general/ui/ContactFormStyles.css"
+import styles from "@/humavery/styles/components/general/ui/ContactFormStyles.module.css"
 
 type FormData = {
     imie: string
@@ -168,7 +168,7 @@ const ContactForm = (): JSX.Element => {
                         onChange={handleChange}
                         className={cn(
                             "w-full rounded-xl px-4 py-2.5 text-sm outline-none transition",
-                            errors.imie ? "field-error-style" : "field-style",
+                            errors.imie ? styles.fieldErrorStyle : styles.fieldStyle,
                         )}
                     />
                     <FieldError msg={errors.imie} />
@@ -185,7 +185,7 @@ const ContactForm = (): JSX.Element => {
                         onChange={handleChange}
                         className={cn(
                             "w-full rounded-xl px-4 py-2.5 text-sm outline-none transition",
-                            errors.nazwisko ? "field-error-style" : "field-style",
+                            errors.nazwisko ? styles.fieldErrorStyle : styles.fieldStyle,
                         )}
                     />
                     <FieldError msg={errors.nazwisko} />
@@ -205,7 +205,7 @@ const ContactForm = (): JSX.Element => {
                     onChange={handleChange}
                     className={cn(
                         "w-full rounded-xl px-4 py-2.5 text-sm outline-none transition",
-                        errors.email ? "field-error-style" : "field-style",
+                        errors.email ? styles.fieldErrorStyle : styles.fieldStyle,
                     )}
                 />
                 <FieldError msg={errors.email} />
@@ -224,7 +224,7 @@ const ContactForm = (): JSX.Element => {
                     rows={7}
                     className={cn(
                         "w-full rounded-xl px-4 py-3 text-sm outline-none transition resize-none",
-                        errors.wiadomosc ? "field-error-style" : "field-style",
+                        errors.wiadomosc ? styles.fieldErrorStyle : styles.fieldStyle,
                     )}
                 />
                 <FieldError msg={errors.wiadomosc} />

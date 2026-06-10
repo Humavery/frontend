@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { getLocale } from "next-intl/server"
 import { redirect } from "@/humavery/libs/translations/Navigation"
 
 /**
@@ -28,8 +29,9 @@ const metadata: Metadata = {
  * @description This page is used to display the home page.
  * @returns The home page.
  */
-function HomePage() {
-    redirect("/contact" as never)
+async function HomePage(): Promise<never> {
+    const locale: string = await getLocale()
+    return redirect({ href: "/contact", locale })
 }
 
 export { metadata }
