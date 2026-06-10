@@ -1,6 +1,7 @@
 "use client"
 
 import { Link } from "@/humavery/libs/translations/Navigation"
+import Image from "next/image"
 
 type FooterLink = {
     label: string
@@ -16,35 +17,35 @@ const FOOTER_COLUMNS: FooterColumn[] = [
     {
         heading: "Produkt",
         links: [
-            { label: "Funkcje", href: "/funkcje" },
-            { label: "Cennik", href: "/cennik" },
-            { label: "Roadmapa", href: "/roadmapa" },
-            { label: "Changelog", href: "/changelog" },
+            { label: "Funkcje", href: "/" },
+            { label: "Cennik", href: "/" },
+            { label: "Roadmapa", href: "/" },
+            { label: "Changelog", href: "/" },
         ],
     },
     {
         heading: "Firma",
         links: [
-            { label: "O nas", href: "/o-nas" },
-            { label: "Blog", href: "/blog" },
-            { label: "Kariera", href: "/kariera" },
-            { label: "Kontakt", href: "/kontakt" },
+            { label: "O nas", href: "/" },
+            { label: "Blog", href: "/" },
+            { label: "Kariera", href: "/" },
+            { label: "Kontakt", href: "/contact#contact" },
         ],
     },
     {
         heading: "Prawne",
         links: [
-            { label: "Regulamin", href: "/regulamin" },
-            { label: "Polityka prywatności", href: "/prywatnosc" },
-            { label: "Cookies", href: "/cookies" },
+            { label: "Regulamin", href: "/" },
+            { label: "Polityka prywatności", href: "/" },
+            { label: "Cookies", href: "/" },
         ],
     },
 ]
 
 const SOCIAL_LINKS: FooterLink[] = [
-    { label: "Twitter / X", href: "https://twitter.com" },
-    { label: "LinkedIn", href: "https://linkedin.com" },
-    { label: "GitHub", href: "https://github.com" },
+    { label: "Twitter / X", href: "/" },
+    { label: "LinkedIn", href: "/" },
+    { label: "GitHub", href: "/" },
 ]
 
 export default function Footer() {
@@ -58,17 +59,10 @@ export default function Footer() {
                     {/* Brand column */}
                     <div className="col-span-2 md:col-span-1 flex flex-col gap-4">
                         <Link href="/" className="flex items-center gap-2 select-none w-fit">
-                            <span
-                                className="h-7 w-7 rounded-lg flex items-center justify-center text-white text-xs font-bold"
-                                style={{ background: "#6b72d8" }}>
-                                H
-                            </span>
-                            <span className="text-sm font-semibold tracking-tight" style={{ color: "#111118" }}>
-                                Humavery
-                            </span>
+                            <Image src="/logos/logo-blue.png" alt="Humavery" width={32} height={32} />
                         </Link>
                         <p className="text-xs leading-relaxed" style={{ color: "#6b6e85" }}>
-                            Budujemy nowoczesne produkty cyfrowe, które rosną razem z Twoim biznesem.
+                            Budujemy nowoczesne produkty cyfrowe, które rosną razem z wiarygodnością twojego biznesu.
                         </p>
                         {/* Socials */}
                         <div className="flex items-center gap-3 mt-1">
@@ -79,11 +73,7 @@ export default function Footer() {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     aria-label={s.label}
-                                    className="h-8 w-8 rounded-xl flex items-center justify-center transition-colors duration-150"
-                                    style={{
-                                        background: "rgba(107,114,216,0.08)",
-                                        color: "#6b72d8",
-                                    }}
+                                    className="h-8 w-8 rounded-xl flex items-center justify-center transition-colors duration-150 bg-blue-500/10 text-blue-500"
                                     onMouseEnter={(e) => {
                                         e.currentTarget.style.background = "#6b72d8"
                                         e.currentTarget.style.color = "#ffffff"
