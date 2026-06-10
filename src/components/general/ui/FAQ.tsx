@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import Link from "next/link"
 
 type FaqItem = {
     question: string
@@ -11,23 +10,23 @@ type FaqItem = {
 const FAQ_ITEMS: FaqItem[] = [
     {
         question: "Jak mogę się z wami skontaktować?",
-        answer: "Możesz skontaktować się z nami poprzez formularz kontaktowy na stronie, bezpośrednio przez e-mail lub telefonicznie w godzinach pracy. Staramy się odpowiadać na wszystkie wiadomości w ciągu 24 godzin.",
+        answer: "Możesz skontaktować się z nami poprzez formularz kontaktowy na stronie, lub bezpośrednio przez e-mail. Staramy się odpowiadać na wszystkie wiadomości w ciągu 24 godzin.",
     },
     {
-        question: "Ile czasu zajmuje realizacja projektu?",
-        answer: "Czas realizacji zależy od złożoności projektu. Proste strony realizujemy w 1–2 tygodnie, bardziej rozbudowane w 4–8 tygodni. Dokładny harmonogram ustalamy indywidualnie na etapie wyceny.",
+        question: "Ile czasu zajmuje weryfikacja tekstu?",
+        answer: "Czas weryfikacji zależy od długości tekstu. Krótkie artykuły zajmują nam do kilku sekund, a te bardziej rozbudowane do parunastu sekund.",
     },
     {
-        question: "Czy oferujecie wsparcie po zakończeniu projektu?",
-        answer: "Tak, oferujemy pakiety wsparcia technicznego i utrzymania obejmujące aktualizacje, drobne poprawki oraz monitoring. Szczegóły omawiamy podczas pierwszego spotkania.",
+        question: "Kiedy mogę spodziewać się odpowiedzi na e-mail?",
+        answer: "Standardowo odpowiadamy w ciągu 24 godzin roboczych. W większości przypadków odpowiedź przychodzi znacznie szybciej — zwykle w ciągu kilku godzin.",
     },
     {
-        question: "Jakie technologie wykorzystujecie?",
-        answer: "Pracujemy głównie w Next.js, TypeScript i Tailwind CSS. Stack dobieramy do potrzeb projektu — zawsze stawiamy na sprawdzone, nowoczesne rozwiązania.",
+        question: "Ile trwa weryfikacja bardzo długich dokumentów?",
+        answer: "Dla obszernych raportów lub książek proces może trwać nawet kilka minut - zależnie od objętości i złożoności tekstu.",
     },
     {
-        question: "Czy mogę zobaczyć wcześniejsze realizacje?",
-        answer: "Oczywiście! Portfolio dostępne jest w sekcji Realizacje. Chętnie pokażemy dodatkowe case studies podczas bezpłatnej konsultacji wstępnej.",
+        question: "Co zrobić, jeśli wynik weryfikacji jest niejednoznaczny?",
+        answer: "Jeśli masz wątpliwości co do raportu, napisz do nas, a my przeanalizujemy przypadek ręcznie i udzielimy szczegółowego wyjaśnienia.",
     },
 ]
 
@@ -59,7 +58,7 @@ function AccordionItem({ question, answer, isOpen, onToggle }: AccordionItemProp
 
                 <span
                     className="flex-shrink-0 h-7 w-7 rounded-lg flex items-center justify-center transition-colors duration-200"
-                    style={{ background: isOpen ? "#6b72d8" : "rgba(107,114,216,0.10)" }}>
+                    style={{ background: isOpen ? "#2b7fff" : "rgba(86, 161, 252,0.10)" }}>
                     <svg
                         width="14"
                         height="14"
@@ -71,7 +70,7 @@ function AccordionItem({ question, answer, isOpen, onToggle }: AccordionItemProp
                         }}>
                         <path
                             d="M7 1v12M1 7h12"
-                            stroke={isOpen ? "#ffffff" : "#6b72d8"}
+                            stroke={isOpen ? "#ffffff" : "#0073ff"}
                             strokeWidth="1.8"
                             strokeLinecap="round"
                         />
@@ -100,48 +99,16 @@ export default function FAQ() {
     const toggle = (i: number) => setOpenIndex((prev) => (prev === i ? null : i))
 
     return (
-        <section className="w-full py-24 px-4 bg-white flex flex-col items-center">
-            <div className="w-full max-w-[720px]">
-                {/* Badge */}
-                <div className="flex justify-center mb-7">
-                    <span
-                        className="inline-flex items-center rounded-full px-4 py-1.5 text-sm"
-                        style={{
-                            background: "rgba(255,255,255,0.55)",
-                            border: "1.5px solid rgba(209,213,240,0.80)",
-                            color: "#4b4e6a",
-                            backdropFilter: "blur(6px)",
-                        }}>
-                        Często zadawane pytania
-                    </span>
-                </div>
-
-                <h2 className="text-4xl font-bold tracking-tight text-center mb-4" style={{ color: "#111118" }}>
-                    Masz pytania?
-                </h2>
-
-                <p
-                    className="text-sm text-center leading-relaxed mb-10 max-w-[460px] mx-auto"
-                    style={{ color: "#6b6e85" }}>
-                    Zebraliśmy odpowiedzi na najczęściej zadawane pytania. Jeśli nie znajdziesz tu odpowiedzi —{" "}
-                    <Link href="/kontakt" className="font-semibold" style={{ color: "#111118" }}>
-                        napisz do nas
-                    </Link>
-                    .
-                </p>
-
-                <div className="flex flex-col gap-3">
-                    {FAQ_ITEMS.map((item, i) => (
-                        <AccordionItem
-                            key={i}
-                            question={item.question}
-                            answer={item.answer}
-                            isOpen={openIndex === i}
-                            onToggle={() => toggle(i)}
-                        />
-                    ))}
-                </div>
-            </div>
-        </section>
+        <div className="flex flex-col gap-3">
+            {FAQ_ITEMS.map((item, i) => (
+                <AccordionItem
+                    key={i}
+                    question={item.question}
+                    answer={item.answer}
+                    isOpen={openIndex === i}
+                    onToggle={() => toggle(i)}
+                />
+            ))}
+        </div>
     )
 }
