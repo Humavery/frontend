@@ -7,6 +7,7 @@ import { Geist } from "next/font/google"
 import { headers } from "next/headers"
 import { routing } from "@/humavery/libs/translations/Routing"
 import "@/humavery/styles/GlobalStyles.css"
+import { EnvironmentVariables } from "../libs/globals/EnvironmentVariables"
 
 /**
  * @summary The font for the website.
@@ -22,6 +23,7 @@ const geistSans: NextFontWithVariable = Geist({
  * @description Metadata information for the website (SEO).
  */
 const metadata: Metadata = {
+    metadataBase: new URL(EnvironmentVariables.WEBSITE_ENDPOINT_URL.href),
     title: "Humavery",
     icons: {
         icon: [
