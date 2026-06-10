@@ -10,11 +10,11 @@ import Image from "next/image"
  * @see {@link ICdnImageProperties} for the properties of the component.
  * @returns The CDN image component.
  */
-const CdnImage = ({ key, ...props }: ICdnImageProperties): JSX.Element => {
+const CdnImage = ({ key, alt, ...props }: ICdnImageProperties): JSX.Element => {
     const url: URL = new URL(EnvironmentVariables.CDN_ENDPOINT_URL)
     url.searchParams.set("key", key)
 
-    return <Image src={url.toString()} {...props} />
+    return <Image src={url.toString()} alt={alt ?? "/"} {...props} />
 }
 
 export default CdnImage

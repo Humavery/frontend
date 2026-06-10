@@ -46,8 +46,16 @@ class LoadTranslationMessagesDataManager {
      * @returns Merged messages for next-intl.
      */
     public static async loadMessages(locale: string): Promise<Record<string, unknown>> {
-        const importMessages = async (l: string) =>
-            (await import(`@/humavery/libs/translations/messages/${l}.json`)).default as Record<string, unknown>
+        const importMessages = async (l: string) => {
+            try {
+                return (await import(`@/humavery/libs/translations/messages/${l}.json`)).default as Record<
+                    string,
+                    unknown
+                >
+            } catch {
+                return {}
+            }
+        }
 
         const tryImportMessages = async (l: string): Promise<Record<string, unknown> | undefined> => {
             try {

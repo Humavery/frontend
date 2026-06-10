@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next"
 import type { IChildren } from "../libs/models/components/general/interfaces/IChildren"
 import type { JSX } from "react"
+import type { NextFontWithVariable } from "next/dist/compiled/@next/font"
 import { ThemeProvider } from "@wrksz/themes/next"
 import { Geist } from "next/font/google"
 import { headers } from "next/headers"
@@ -11,7 +12,7 @@ import "@/humavery/styles/GlobalStyles.css"
  * @summary The font for the website.
  * @description This is the font that will be used for the website.
  */
-const geistSans = Geist({
+const geistSans: NextFontWithVariable = Geist({
     variable: "--font-geist-sans",
     subsets: ["latin"],
 })
@@ -62,7 +63,7 @@ async function RootLayout({ children }: IChildren): Promise<JSX.Element> {
     const lang: string = headerLocale ?? routing.defaultLocale
 
     return (
-        <html lang={lang} className={`${geistSans.variable} h-full antialiased`} suppressHydrationWarning>
+        <html lang={lang} className={`${geistSans.className} h-full antialiased`} suppressHydrationWarning>
             <body>
                 <ThemeProvider attribute="class" defaultTheme="system" disableTransitionOnChange storage="hybrid">
                     {children}

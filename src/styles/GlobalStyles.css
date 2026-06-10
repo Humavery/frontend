@@ -1,14 +1,28 @@
 @import "tailwindcss";
 
+@theme {
+    --color-background: #fafafa;
+    --color-foreground: #171717;
+    --color-primary: #1e31f1;
+    --color-secondary: #d0e78a;
+    --color-inactive: #505050;
+}
+
 @layer theme {
     :root {
         --color-background: #fafafa;
         --color-foreground: #171717;
+        --color-primary: #1e31f1;
+        --color-secondary: #d0e78a;
+        --color-inactive: #505050;
     }
 
     html.dark {
         --color-background: #0a0a0a;
         --color-foreground: #fafafa;
+        --color-primary: #1e31f1;
+        --color-secondary: #d0e78a;
+        --color-inactive: #999999;
     }
 
     /**

@@ -1,0 +1,11 @@
+.field-style {
+    background: #eef0f9;
+    border: 1.5px solid #d7ddff;
+    color: #1a1a2e;
+}
+
+.field-error-style {
+    background: #fef2f2;
+    border: 1.5px solid #adb7f0;
+    color: #1a1a2e;
+}
