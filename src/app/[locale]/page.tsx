@@ -1,5 +1,6 @@
-import type { JSX } from "react"
 import type { Metadata } from "next"
+
+import { redirect } from "@/humavery/libs/translations/Navigation"
 
 /**
  * @summary The metadata for the home page.
@@ -28,8 +29,8 @@ const metadata: Metadata = {
  * @description This page is used to display the home page.
  * @returns The home page.
  */
-function HomePage(): JSX.Element {
-    return <></>
+function HomePage() {
+    redirect("/contact" as never)
 }
 
 export { metadata }
